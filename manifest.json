@@ -1,0 +1,21 @@
+{
+"name":"RL_Bumper",
+"description":"Bump trades",
+"version":"0.1",
+"manifest_version":2,
+"content_scripts": 
+	[
+		{
+		  "matches": ["http://rocket-league.com/trades/*","https://rocket-league.com/trades/*"],
+		  "js": ["./js/jquery-3.5.1.js", "./js/content_script.js", "./js/app.js"]
+		}
+	],
+	"permissions": [
+        "storage"
+    ],
+	"browser_action": 
+	{
+		"default_title": "RL_Bumper",
+		"default_popup": "popup.html"
+	}
+}
