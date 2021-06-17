@@ -152,15 +152,16 @@ const BumpIt = async () => {
 		  console.log("Next bump: " + today.getHours()+":"+today.getMinutes()+":"+today.getSeconds());
 		  //waiting 900000 ms = 15 minutes
 		  await delay(900000);
+		  console.log(username);
 		  //reloaded page to avoid session timeout
-		  document.location.href = 'https://rocket-league.com/trades/'+username;
+		  document.location.reload();
 		}
 		catch{
 			/*if some errors with loading page
 			waiting 60000 ms = 1 minute and reload page 
 			*/
 			await delay(60000);
-			document.location.href = 'https://rocket-league.com/trades/'+username;
+			document.location.reload();
 		}
 	}
 }
@@ -185,11 +186,30 @@ const BumpIt = async () => {
 				getOfferIds();
 				BumpIt();
 			}
+			else{
+				createEmpty()
+				getOfferIds();
+			}
 		});
 	}
 	catch(err){ console.log("error loading data")}
 
 });
+
+function createEmpty(){
+	var pluginArrayArg = new Array();
+	var jsonArg = new Object();
+	jsonArg.id = ""
+	jsonArg.comment = ""
+	jsonArg.status = 1
+	jsonArg.name = $(".rlg-trade__username").text();
+	jsonArg.mode = 0
+	pluginArrayArg.push(jsonArg);
+	var jsonArray = JSON.stringify(pluginArrayArg);
+    chrome.storage.sync.set({"offerData": jsonArray},function(){
+		console.log("Created empty key")
+});
+}
 
 
   

@@ -23,8 +23,26 @@ $(document).ready(function() {
 					}
 				}
 			}
+			else{
+				createEmpty()
+			}
 		});
 });
+
+function createEmpty(){
+	var pluginArrayArg = new Array();
+	var jsonArg = new Object();
+	jsonArg.id = ""
+	jsonArg.comment = ""
+	jsonArg.status = 1
+	jsonArg.name = $(".rlg-trade__username").text();
+	jsonArg.mode = 0
+	pluginArrayArg.push(jsonArg);
+	var jsonArray = JSON.stringify(pluginArrayArg);
+    chrome.storage.sync.set({"offerData": jsonArray},function(){
+		console.log("Created empty key")
+});
+}
 
 /**
  * Save data to storage when edit something
@@ -73,4 +91,8 @@ $("input[type='checkbox']").change(function() {
  */
 $('input').on('input', function() {
     saveData();
+});
+
+$("#mode").change(function() {
+	$("#mode_message").text("Refresh page to apply mode")
 });
