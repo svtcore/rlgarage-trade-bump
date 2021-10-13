@@ -20,3 +20,9 @@ You can enable or disable offers which you don't use and set comment for each. I
 6. After loading page open extension on the Menu Bar and choose offers you want to bump every 15 minutes.
 7. Switch mode to **ON**
 8. Refresh page
+
+# Contributing
+Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+
+# License
+[GPL-3.0](https://github.com/svtcore/rlgarage-trade-bump/blob/main/LICENSE)
