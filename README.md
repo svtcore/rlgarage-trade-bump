@@ -22,7 +22,7 @@ You can enable or disable offers which you don't use and set comment for each. I
 8. Refresh page
 
 # Contributing
-Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome.
 
 # License
 [GPL-3.0](https://github.com/svtcore/rlgarage-trade-bump/blob/main/LICENSE)
